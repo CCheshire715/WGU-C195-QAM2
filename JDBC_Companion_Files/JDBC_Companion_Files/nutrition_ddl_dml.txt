@@ -1,0 +1,27 @@
+USE client_schedule;
+#DDL
+CREATE TABLE IF NOT EXISTS COLORS (
+  Color_ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  Color_Name VARCHAR(50) NOT NULL  
+);
+
+CREATE TABLE IF NOT EXISTS FRUITS (
+  Fruit_ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  Fruit_Name VARCHAR(50) NOT NULL,
+  Color_ID INT(10) NOT NULL,  
+  CONSTRAINT COLORS_FK_FRUITS
+  FOREIGN KEY (Color_ID) 
+  REFERENCES COLORS (Color_ID)
+);
+
+# DML
+INSERT INTO COLORS (Color_ID, Color_Name) VALUES (1, 'Red');
+INSERT INTO COLORS (Color_ID, Color_Name) VALUES (2, 'Yellow');
+INSERT INTO COLORS (Color_ID, Color_Name) VALUES (3, 'Green');
+
+INSERT INTO FRUITS (Fruit_ID, Fruit_Name, Color_ID) VALUES (1, 'Apple', 1);
+INSERT INTO FRUITS (Fruit_ID, Fruit_Name, Color_ID) VALUES (2, 'Tomatoe', 1);
+INSERT INTO FRUITS (Fruit_ID, Fruit_Name, Color_ID) VALUES (3, 'Banana', 2);
+INSERT INTO FRUITS (Fruit_ID, Fruit_Name, Color_ID) VALUES (4, 'Lemon', 2);
+INSERT INTO FRUITS (Fruit_ID, Fruit_Name, Color_ID) VALUES (5, 'Pickle', 3);
+INSERT INTO FRUITS (Fruit_ID, Fruit_Name, Color_ID) VALUES (6, 'Cucumber', 3);

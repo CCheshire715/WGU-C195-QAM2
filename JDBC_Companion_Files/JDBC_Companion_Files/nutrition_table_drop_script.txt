@@ -1,0 +1,2 @@
+USE client_schedule;
+DROP TABLE IF EXISTS FRUITS, COLORS;

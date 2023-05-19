@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AppointmentsController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="1000.0" spacing="40.0">
+         <children>
+            <Label text="Appointments">
+               <HBox.margin>
+                  <Insets right="150.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="appointmentsByWeekRBtn" mnemonicParsing="false" onAction="#onActionAppointmentsByWeekRBtn" text="Current Week">
+               <HBox.margin>
+                  <Insets left="205.0" />
+               </HBox.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="appointmentsViewTG" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="appointmentsByMonthRBtn" layoutX="38.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionAppointmentsByMonthRBtn" text="Current Month" toggleGroup="$appointmentsViewTG" />
+            <RadioButton fx:id="appointmentsViewAllRBtn" layoutX="125.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionAppointmentsViewAllRBtn" selected="true" text="View All" toggleGroup="$appointmentsViewTG">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </RadioButton>
+         </children>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </HBox>
+      <TableView fx:id="appointmentsTableView" layoutX="50.0" layoutY="75.0" prefHeight="350.0" prefWidth="900.0">
+        <columns>
+          <TableColumn fx:id="appointmentsIdCol" prefWidth="50.0" text="ID" />
+          <TableColumn fx:id="appointmentsTitleCol" prefWidth="79.0" text="Title" />
+            <TableColumn fx:id="appointmentsDescriptionCol" prefWidth="119.0" text="Description" />
+            <TableColumn fx:id="appointmentsLocationCol" minWidth="0.0" prefWidth="87.0" text="Location" />
+            <TableColumn fx:id="appointmentsContactIdCol" prefWidth="55.0" text="Contact" />
+            <TableColumn fx:id="appointmentsTypeCol" prefWidth="107.0" text="Type" />
+            <TableColumn fx:id="appointmentsStartCol" prefWidth="125.0" text="Start Date/Time" />
+            <TableColumn fx:id="appointmentsEndCol" prefWidth="125.0" text="End Date/Time" />
+            <TableColumn fx:id="appointmentsCustomerIdCol" minWidth="0.0" prefWidth="85.0" text="Customer ID" />
+            <TableColumn fx:id="appointmentsUserIdCol" prefWidth="67.0" text="User ID" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER_RIGHT" layoutX="50.0" layoutY="425.0" prefHeight="75.0" prefWidth="900.0" spacing="30.0">
+         <children>
+            <Button fx:id="appointmentsAddButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onActionAppointmentsAddButton" prefWidth="55.0" text="Add" />
+            <Button fx:id="appointmentsUpdateButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionAppointmentsUpdateButton" text="Update" />
+            <Button fx:id="appointmentsDeleteButton" layoutX="62.0" layoutY="10.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onActionAppointmentsDeleteButton" prefWidth="55.0" text="Delete" />
+            <Button fx:id="appointmentsMenuButton" layoutX="114.0" layoutY="10.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onActionAppointmentsMenuButton" prefWidth="55.0" text="Menu" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

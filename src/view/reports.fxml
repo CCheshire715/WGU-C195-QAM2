@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportsController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="500.0">
+         <children>
+            <Label text="Appointment Reports">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="500.0" prefHeight="75.0" prefWidth="500.0" spacing="30.0">
+         <children>
+            <Label text="Filter by Contact:" />
+            <ComboBox fx:id="reportsContactComboBox" onAction="#onActionReportContact" prefWidth="150.0" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </HBox>
+      <TableView fx:id="reportsTableView" layoutX="50.0" layoutY="75.0" prefHeight="300.0" prefWidth="900.0">
+        <columns>
+          <TableColumn fx:id="reportsIdCol" prefWidth="60.0" text="ID" />
+          <TableColumn fx:id="reportsTitleCol" prefWidth="150.0" text="Title" />
+            <TableColumn fx:id="reportsTypeCol" prefWidth="150.0" text="Type" />
+            <TableColumn fx:id="reportsDescriptionCol" prefWidth="150.0" text="Description" />
+            <TableColumn fx:id="reportsStartCol" prefWidth="150.0" text="Start Date/Time" />
+            <TableColumn fx:id="reportsEndCol" prefWidth="150.0" text="End Date/Time" />
+            <TableColumn fx:id="reportsCustomerIdCol" prefWidth="90.0" text="Customer ID" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER_RIGHT" layoutX="50.0" layoutY="625.0" prefHeight="75.0" prefWidth="900.0">
+         <children>
+            <Button fx:id="reportsMainMenuButton" mnemonicParsing="false" onAction="#onActionReportsMainMenu" text="Main Menu" />
+         </children>
+      </HBox>
+      <TableView fx:id="reportsAppointmentTypeTableView" layoutX="50.0" layoutY="425.0" prefHeight="200.0" prefWidth="435.0">
+         <columns>
+            <TableColumn fx:id="reportsAppointmentMonthCol" prefWidth="145.0" text="Month" />
+            <TableColumn fx:id="reportsAppointmentTypeCol" prefWidth="145.0" text="Type" />
+            <TableColumn fx:id="reportsAppointmentTypeTotalCol" prefWidth="145.0" text="Total" />
+         </columns>
+      </TableView>
+      <TableView fx:id="reportsCountryTableView" layoutX="660.0" layoutY="425.0" prefHeight="200.0" prefWidth="290.0">
+         <columns>
+            <TableColumn fx:id="reportsCountryCol" prefWidth="145.0" text="Country" />
+            <TableColumn fx:id="reportsCountryTotalCol" prefWidth="145.0" text="Total" />
+         </columns>
+      </TableView>
+      <Label layoutX="722.0" layoutY="389.0" text="Total Appointments by Country" />
+      <Label layoutX="162.0" layoutY="389.0" text="Total Appointments by Month and Type" />
+   </children>
+</AnchorPane>
